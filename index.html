@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick Calculations</title>
+    <!-- Font Request -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h2>Quick Calculations</h2>
+
+    <div class="card">
+        <!-- Custom Dropdown Structure -->
+        <div class="form-row" style="align-items: start;">
+            <label style="margin-top: 12px;">Select Calculation</label>
+            <div class="custom-dropdown" id="customDropdown">
+                <div class="dropdown-trigger" onclick="toggleDropdown()">
+                    <span id="triggerText">Select an Equation...</span>
+                    <span class="chevron">▼</span>
+                </div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <!-- Search & List will be injected here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dynamic Inputs Area -->
+        <div id="inputContainer">
+            <!-- Inputs generated here -->
+        </div>
+
+        <!-- Results Area -->
+        <div class="result-card hidden" id="resultCard">
+            <div class="result-title" id="resultTitle">Calculated Result</div>
+            
+            <!-- 1. BMI Result -->
+            <div id="bmiResultUI" class="hidden bmi-container">
+                <div class="text-result-value" id="bmiVal" style="font-size: 32px;">--</div>
+                <div class="text-result-unit" style="font-size: 18px; margin-top: 4px;">kg/m²</div>
+                <div class="bmi-status" id="bmiText">Waiting</div>
+            </div>
+
+            <!-- 2. Standard Text Result -->
+            <div id="textResultUI" class="hidden">
+                <!-- Content injected by JS -->
+            </div>
+
+            <!-- Reference Section -->
+            <div id="refUI" class="hidden reference-text"></div>
+
+        </div>
+    </div>
+
+    <!-- Modal Markup -->
+    <div class="modal-overlay" id="imageModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title" id="modalTitle">Reference Guidelines</span>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <img id="modalImg" src="" alt="Reference Table" class="modal-img">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
